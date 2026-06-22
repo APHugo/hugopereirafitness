@@ -1,1 +1,161 @@
+<!DOCTYPE html>
+<html lang="pt-PT">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artigos sobre Treino e Nutrição | Hugo Pereira PT</title>
+    <meta name="description" content="Artigos baseados em evidência científica sobre treino de força, nutrição e composição corporal. Por Hugo Pereira, personal trainer online.">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://hugopereira.pt/artigos/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        body { font-family: 'Inter', sans-serif; background: #f8f8f8; color: #1a1a1a; }
+        :root { --accent: #fbd309; --dark: #0D0D0D; }
 
+        header { background: var(--dark); padding: 1.25rem 5%; display: flex; align-items: center; justify-content: space-between; }
+        .header-logo { font-family: 'Barlow Condensed', sans-serif; font-size: 1.2rem; font-weight: 900; color: #fff; text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; }
+        .header-logo span { color: var(--accent); }
+        .header-back { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 0.82rem; transition: color 0.2s; }
+        .header-back:hover { color: var(--accent); }
+
+        .page-hero {
+            background: var(--dark);
+            padding: 4rem 5% 3rem;
+            border-bottom: 3px solid var(--accent);
+        }
+        .page-hero h1 {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 900;
+            text-transform: uppercase;
+            color: #fff;
+            line-height: 1;
+        }
+        .page-hero h1 span { color: var(--accent); }
+        .page-hero p { color: rgba(255,255,255,0.5); margin-top: 0.75rem; font-size: 0.9rem; max-width: 500px; line-height: 1.6; }
+
+        .artigos-list {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 5%;
+            display: grid;
+            gap: 1.5rem;
+        }
+        .artigo-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            text-decoration: none;
+            display: grid;
+            grid-template-columns: 8px 1fr;
+            border: 1px solid #eee;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+        .artigo-card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.08); }
+        .artigo-stripe { background: var(--accent); }
+        .artigo-body { padding: 2rem; }
+        .artigo-tag {
+            font-size: 0.7rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            color: var(--accent);
+            margin-bottom: 0.6rem;
+        }
+        .artigo-title {
+            font-family: 'Barlow Condensed', sans-serif;
+            font-size: 1.6rem;
+            font-weight: 900;
+            text-transform: uppercase;
+            color: var(--dark);
+            line-height: 1.15;
+            margin-bottom: 0.75rem;
+        }
+        .artigo-excerpt { font-size: 0.88rem; color: #666; line-height: 1.7; margin-bottom: 1.25rem; }
+        .artigo-footer { display: flex; align-items: center; justify-content: space-between; }
+        .artigo-meta { font-size: 0.75rem; color: #aaa; }
+        .artigo-ler { font-size: 0.78rem; font-weight: 700; color: var(--dark); text-transform: uppercase; letter-spacing: 0.05em; }
+
+        .cta-strip {
+            background: var(--dark);
+            padding: 4rem 5%;
+            text-align: center;
+        }
+        .cta-strip h2 { font-family: 'Barlow Condensed', sans-serif; font-size: 2rem; font-weight: 900; text-transform: uppercase; color: #fff; margin-bottom: 0.75rem; }
+        .cta-strip p { color: rgba(255,255,255,0.55); font-size: 0.9rem; margin-bottom: 1.5rem; }
+        .cta-strip a { display: inline-block; background: var(--accent); color: #000; padding: 0.85rem 2rem; border-radius: 6px; font-size: 0.9rem; font-weight: 700; text-decoration: none; }
+
+        footer { background: var(--dark); padding: 1.25rem 5%; text-align: center; border-top: 1px solid rgba(255,255,255,0.06); }
+        footer small { color: rgba(255,255,255,0.3); font-size: 0.78rem; }
+    </style>
+</head>
+<body>
+
+<header>
+    <a href="../index.html" class="header-logo">Hugo<span>.</span>PT</a>
+    <a href="../index.html" class="header-back">← Voltar ao site</a>
+</header>
+
+<div class="page-hero">
+    <h1>Artigos sobre<br><span>Treino & Nutrição</span></h1>
+    <p>Conteúdo baseado em evidência científica para te ajudar a tomar melhores decisões sobre o teu treino e alimentação.</p>
+</div>
+
+<div class="artigos-list">
+
+    <a href="hipertrofia-guia-cientifico.html" class="artigo-card">
+        <div class="artigo-stripe"></div>
+        <div class="artigo-body">
+            <div class="artigo-tag">Treino · Ciência</div>
+            <div class="artigo-title">Hipertrofia Muscular: O Guia Baseado em Evidências</div>
+            <p class="artigo-excerpt">Tensão mecânica, volume ótimo, frequência e progressão — o que a investigação científica diz realmente sobre ganhar músculo de forma eficiente. Inclui recomendações práticas baseadas em meta-análises.</p>
+            <div class="artigo-footer">
+                <span class="artigo-meta">Junho 2026 · 7 min de leitura</span>
+                <span class="artigo-ler">Ler artigo →</span>
+            </div>
+        </div>
+    </a>
+
+    <a href="proteina-massa-muscular.html" class="artigo-card">
+        <div class="artigo-stripe"></div>
+        <div class="artigo-body">
+            <div class="artigo-tag">Nutrição · Ciência</div>
+            <div class="artigo-title">Proteína para Ganhar Músculo: Quanto, Quando e Como</div>
+            <p class="artigo-excerpt">A dose certa de proteína por quilograma de peso corporal, a distribuição por refeição e as melhores fontes para ganho muscular — tudo com base em meta-análises recentes, incluindo o estudo de Morton et al. (2018).</p>
+            <div class="artigo-footer">
+                <span class="artigo-meta">Junho 2026 · 6 min de leitura</span>
+                <span class="artigo-ler">Ler artigo →</span>
+            </div>
+        </div>
+    </a>
+
+    <a href="erros-treino-homens.html" class="artigo-card">
+        <div class="artigo-stripe"></div>
+        <div class="artigo-body">
+            <div class="artigo-tag">Treino · Erros Comuns</div>
+            <div class="artigo-title">Os 5 Erros que Travam o Teu Progresso Muscular</div>
+            <p class="artigo-excerpt">Porque treinas há meses sem ver resultados? Estes cinco erros — ausência de progressão, volume excessivo, sono insuficiente, défice calórico agressivo e inconsistência — são a causa mais comum de estagnação nos homens.</p>
+            <div class="artigo-footer">
+                <span class="artigo-meta">Junho 2026 · 5 min de leitura</span>
+                <span class="artigo-ler">Ler artigo →</span>
+            </div>
+        </div>
+    </a>
+
+</div>
+
+<div class="cta-strip">
+    <h2>Aplica o conhecimento com acompanhamento real</h2>
+    <p>Saber o que fazer é apenas metade do caminho. A outra metade é ter um plano estruturado e alguém que te responsabilize.</p>
+    <a href="https://wa.me/351935477107?text=Ol%C3%A1+Hugo%2C+li+os+artigos+e+quero+saber+mais+sobre+o+acompanhamento!" target="_blank" rel="noopener">💬 Marcar conversa gratuita</a>
+</div>
+
+<footer>
+    <small>© 2026 Hugo Pereira · Personal Trainer Online · <a href="../politica-privacidade.html" style="color:rgba(255,255,255,0.3);">Política de Privacidade</a></small>
+</footer>
+
+</body>
+</html>
