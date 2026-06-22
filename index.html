@@ -476,6 +476,8 @@
             transition: border-color 0.3s, transform 0.3s;
         }
         .benefit-card:hover { border-color: rgba(251,211,9,0.25); transform: translateY(-4px); }
+        .benefit-toggle { display: none; }
+        .benefit-card-header { display: contents; }
         .benefit-icon { font-size: 1.8rem; margin-bottom: 1rem; }
         .benefit-card h3 {
             font-family: 'Barlow Condensed', sans-serif;
@@ -1221,8 +1223,17 @@
             .about-image-wrapper { display: none; }
 
             .benefits { padding: 70px 5%; }
-            .benefits-grid { grid-template-columns: 1fr; }
             .benefits-header { margin-bottom: 3rem; }
+            .benefits-grid { grid-template-columns: 1fr; gap: 0; border: 1px solid rgba(255,255,255,0.08); border-radius: 12px; overflow: hidden; }
+            .benefit-card { border-radius: 0; border: none; border-bottom: 1px solid rgba(255,255,255,0.08); padding: 1.1rem 1.25rem; transform: none !important; }
+            .benefit-card:last-child { border-bottom: none; }
+            .benefit-card-header { display: flex; align-items: center; gap: 0.75rem; cursor: pointer; user-select: none; }
+            .benefit-icon { margin-bottom: 0; font-size: 1.3rem; flex-shrink: 0; }
+            .benefit-card h3 { font-size: 0.95rem; flex: 1; margin: 0; }
+            .benefit-toggle { background: none; border: 1px solid rgba(255,255,255,0.15); border-radius: 50%; width: 28px; height: 28px; display: flex; align-items: center; justify-content: center; cursor: pointer; flex-shrink: 0; transition: transform 0.3s, border-color 0.3s; color: rgba(255,255,255,0.5); padding: 0; }
+            .benefit-card.open .benefit-toggle { transform: rotate(180deg); border-color: var(--accent); color: var(--accent); }
+            .benefit-card p { display: none; margin: 0.75rem 0 0 0; padding-top: 0.75rem; border-top: 1px solid rgba(255,255,255,0.06); font-size: 0.875rem; }
+            .benefit-card.open p { display: block; }
 
             .how { padding: 70px 5%; }
             .how-header { margin-bottom: 3rem; }
@@ -1270,7 +1281,7 @@
             .t-card p,
             .faq-answer,
             .construcao-content > p,
-            .vagas-text p { text-align: left; }
+            .vagas-text p { text-align: justify; }
         }
     </style>
 </head>
@@ -1518,7 +1529,6 @@
 
 <!-- ── Construção 60 — temporariamente removido ── -->
 
-
 <!-- ── CTA ── -->
 <section class="cta-section" id="contacto">
     <h2>Dá o primeiro passo.<br>O resto vem com o trabalho.</h2>
@@ -1537,8 +1547,6 @@
     <small>© 2026 Hugo Pereira · <a href="politica-privacidade.html" style="color:rgba(255,255,255,0.3);text-decoration:underline;">Política de Privacidade</a></small>
     <div class="footer-social">
         <a href="https://www.instagram.com/hugopereira_pt/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
-        
-        
     </div>
 </footer>
 
@@ -1554,6 +1562,33 @@
     window.addEventListener('scroll', () => {
         navbar.classList.toggle('scrolled', window.scrollY > 50);
     });
+
+    // Benefits accordion (mobile only)
+    function initBenefitsAccordion() {
+        if (window.innerWidth > 768) return;
+        document.querySelectorAll('.benefit-card').forEach(card => {
+            if (card.querySelector('.benefit-toggle')) return; // already init
+            const icon = card.querySelector('.benefit-icon');
+            const h3 = card.querySelector('h3');
+            const p = card.querySelector('p');
+            const header = document.createElement('div');
+            header.className = 'benefit-card-header';
+            const toggle = document.createElement('button');
+            toggle.className = 'benefit-toggle';
+            toggle.setAttribute('aria-label', 'Ver mais');
+            toggle.innerHTML = '<svg width="14" height="14" viewBox="0 0 14 14" fill="none"><path d="M2 5l5 5 5-5" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+            card.insertBefore(header, icon);
+            header.appendChild(icon);
+            header.appendChild(h3);
+            header.appendChild(toggle);
+            header.addEventListener('click', () => {
+                const isOpen = card.classList.contains('open');
+                document.querySelectorAll('.benefit-card').forEach(c => c.classList.remove('open'));
+                if (!isOpen) card.classList.add('open');
+            });
+        });
+    }
+    initBenefitsAccordion();
 
     // FAQ accordion
     function toggleFaq(btn) {
