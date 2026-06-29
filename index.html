@@ -4,12 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Hugo Pereira | Acompanhamento Online de Treino e Nutrição | Portugal</title>
-    <meta name="description" content="Acompanhamento online de treino e nutrição 100% personalizado para todo Portugal. Plano individual, check-ins semanais e suporte real. Marca uma conversa gratuita com o Hugo Pereira.">
-    <meta name="keywords" content="personal trainer online, online fitness coach Portugal, coaching fitness online, treino online personalizado, plano de treino online, Hugo Pereira personal trainer">
+    <title>Hugo Pereira | Personal Trainer Online | Braga e Portugal</title>
+    <meta name="description" content="Hugo Pereira, personal trainer online com base em Braga. Acompanhamento 100% personalizado de treino e nutrição em todo Portugal. Check-ins semanais, suporte real. Marca uma conversa gratuita.">
+    <meta name="keywords" content="Hugo Pereira personal trainer, personal trainer Braga, personal trainer online Portugal, coaching fitness online, treino online personalizado, Hugo Pereira Braga, personal trainer Braga">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Hugo Pereira">
     <link rel="canonical" href="https://hugopereirafitness.pt/">
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="/favicon.svg">
 
     <!-- Open Graph (partilha em redes sociais) -->
     <meta property="og:type" content="website">
@@ -46,17 +48,26 @@
       "@type": "Person",
       "name": "Hugo Pereira",
       "jobTitle": "Personal Trainer Online",
-      "description": "Personal trainer online para todo Portugal. Coaching 1:1, planos de treino 100% personalizados e acompanhamento real à distância.",
+      "description": "Personal trainer online com base em Braga. Coaching 1:1, planos de treino 100% personalizados e acompanhamento real à distância em todo Portugal.",
       "url": "https://hugopereirafitness.pt",
       "telephone": "+351935477107",
       "image": "https://hugopereirafitness.pt/hugo.jpg",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Braga",
+        "addressRegion": "Braga",
+        "addressCountry": "PT"
+      },
       "sameAs": ["https://www.instagram.com/hugopereira_pt/"],
       "hasOccupation": {
         "@type": "Occupation",
         "name": "Personal Trainer",
-        "occupationLocation": { "@type": "Country", "name": "Portugal" }
+        "occupationLocation": [
+          { "@type": "City", "name": "Braga" },
+          { "@type": "Country", "name": "Portugal" }
+        ]
       },
-      "knowsAbout": ["Hipertrofia Muscular", "Nutrição Desportiva", "Treino de Força", "Coaching Online", "Composição Corporal"]
+      "knowsAbout": ["Hipertrofia Muscular", "Nutrição Desportiva", "Treino de Força", "Coaching Online", "Composição Corporal", "Personal Trainer Braga"]
     }
     </script>
 
@@ -89,15 +100,18 @@
     {
       "@context": "https://schema.org",
       "@type": "Service",
-      "name": "Coaching 1:1 Online",
-      "description": "Acompanhamento personalizado de treino e nutrição online. Plano de treino 100% individual, orientação nutricional, check-ins semanais, suporte via WhatsApp e ajuste contínuo. Disponível em planos de 30, 60 ou 90 dias.",
+      "name": "Coaching 1:1 Online — Personal Trainer Braga",
+      "description": "Acompanhamento personalizado de treino e nutrição online com Hugo Pereira, personal trainer em Braga. Plano 100% individual, orientação nutricional, check-ins semanais e suporte via WhatsApp. Em Braga e em todo Portugal.",
       "serviceType": "Personal Training Online",
       "provider": {
         "@type": "Person",
         "name": "Hugo Pereira",
         "url": "https://hugopereirafitness.pt"
       },
-      "areaServed": { "@type": "Country", "name": "Portugal" },
+      "areaServed": [
+        { "@type": "City", "name": "Braga" },
+        { "@type": "Country", "name": "Portugal" }
+      ],
       "offers": {
         "@type": "Offer",
         "availability": "https://schema.org/LimitedAvailability",
@@ -168,7 +182,9 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap" media="print" onload="this.media='all'">
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800;900&family=Inter:wght@300;400;500;600&display=swap"></noscript>
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
         html { scroll-behavior: smooth; }
@@ -194,9 +210,16 @@
             transition: background 0.3s, backdrop-filter 0.3s;
         }
         nav.scrolled {
+            border-bottom: 1px solid var(--border);
+        }
+        nav.scrolled::before {
+            content: '';
+            position: absolute;
+            inset: 0;
             background: rgba(13,13,13,0.95);
             backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
+            -webkit-backdrop-filter: blur(10px);
+            z-index: -1;
         }
         .nav-logo {
             text-decoration: none;
@@ -248,8 +271,13 @@
             font-weight: 700 !important;
         }
         .nav-cta:hover { opacity: 0.9; }
-        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
-        .hamburger span { width: 24px; height: 2px; background: #fff; display: block; transition: 0.3s; }
+        .mobile-only { display: none; }
+        @media (max-width: 768px) { .mobile-only { display: list-item; } }
+        .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; z-index: 1001; position: relative; }
+        .hamburger span { width: 24px; height: 2px; background: #fff; display: block; transition: transform 0.3s, opacity 0.3s; }
+        .hamburger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .hamburger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .hamburger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ── Hero ── */
         .hero {
@@ -848,8 +876,8 @@
             bottom: 28px;
             right: 28px;
             z-index: 9000;
-            width: 56px;
-            height: 56px;
+            width: 46px;
+            height: 46px;
             background: #25D366;
             border-radius: 50%;
             display: flex;
@@ -863,7 +891,7 @@
             transform: scale(1.1);
             box-shadow: 0 6px 28px rgba(37,211,102,0.55);
         }
-        .whatsapp-float svg { width: 30px; height: 30px; }
+        .whatsapp-float svg { width: 22px; height: 22px; }
         @keyframes wa-pulse {
             0%   { box-shadow: 0 0 0 0 rgba(37,211,102,0.5); }
             70%  { box-shadow: 0 0 0 14px rgba(37,211,102,0); }
@@ -1290,13 +1318,14 @@
 <!-- ── Navbar ── -->
 <nav id="navbar">
     <a href="#" class="nav-logo">
-        <img src="logo-mark.svg" alt="HP">
+        <img src="logo-mark.svg" alt="Hugo Pereira Fitness">
         <div class="nav-logo-text">
             <span class="nav-logo-name">Hugo Pereira</span>
             <span class="nav-logo-tag">Personal Trainer</span>
         </div>
     </a>
     <ul class="nav-links" id="navLinks">
+        <li class="mobile-only"><a href="#home">Início</a></li>
         <li><a href="#sobre">Sobre</a></li>
         <li><a href="#como-funciona">Coaching 1:1</a></li>
         <li><a href="#testemunhos">Testemunhos</a></li>
@@ -1311,9 +1340,9 @@
 <!-- ── Hero ── -->
 <section class="hero" id="home">
     <div class="hero-content">
-        <div class="hero-badge">Acompanhamento Online · Para Homens</div>
+        <div class="hero-badge">Acompanhamento Online · Portugal</div>
         <h1>Acompanhamento Online.<br><em>O controlo do corpo é meu.</em></h1>
-        <p>A maioria dos homens sabe o que quer mudar no corpo. O problema não é a vontade — é a falta de um plano que encaixe numa vida real com trabalho, família e pouco tempo. É exactamente aí que entro.</p>
+        <p>A maioria das pessoas sabe o que quer mudar no corpo. O problema não é a vontade — é a falta de um plano que encaixe numa vida real com trabalho, família e pouco tempo. É exactamente aí que entro.</p>
         <div class="hero-actions">
             <a href="#" class="btn-primary btn-calendar" target="_blank" rel="noopener">
                 📅 Agendar Conversa Gratuita
@@ -1321,19 +1350,19 @@
             <a href="#como-funciona" class="btn-ghost">Ver como funciona →</a>
         </div>
     </div>
-    <img src="hugo.jpg" alt="Hugo Pereira Personal Trainer" class="hero-photo">
+    <img src="hugo.jpg" alt="Hugo Pereira Personal Trainer Online em Braga" class="hero-photo">
 </section>
 
 <!-- ── About ── -->
 <section class="about" id="sobre">
     <div class="about-grid">
         <div class="about-image-wrapper">
-            <img src="sobre.jpg" alt="Hugo Pereira Personal Trainer" class="about-img">
+            <img src="sobre.jpg" alt="Hugo Pereira Personal Trainer Braga — Coaching Online" class="about-img" loading="lazy">
         </div>
         <div class="about-content">
             <div class="section-tag section-tag-dark">Sobre Mim</div>
             <h2>Não sou o PT que te manda treinos por email e desaparece.</h2>
-            <p>Sou o Hugo Pereira. Trabalho com homens que têm trabalho, família e pouco tempo — e que já tentaram mudar o corpo sozinhos mais do que uma vez.</p>
+            <p>Sou o Hugo Pereira. Trabalho com pessoas que têm trabalho, família e pouco tempo — e que já tentaram mudar o corpo sozinhas mais do que uma vez.</p>
             <p>Sei que o problema não é falta de vontade. É não ter um plano feito à medida de uma vida real. É aí que começo.</p>
         </div>
     </div>
@@ -1443,19 +1472,19 @@
     </div>
     <div class="transformacoes-grid">
         <div class="transformacao-card">
-            <img src="transformacao1.jpg" alt="Transformação cliente Hugo Pereira">
+            <img src="transformacao1.jpg" alt="Transformação física real — cliente de Hugo Pereira Personal Trainer Braga" loading="lazy">
             <div class="transformacao-label">
                 <span class="t-badge">Antes / Depois</span>
             </div>
         </div>
         <div class="transformacao-card">
-            <img src="transformacao2.jpg" alt="Transformação cliente Hugo Pereira">
+            <img src="transformacao2.jpg" alt="Antes e depois — resultado real de coaching online com Hugo Pereira" loading="lazy">
             <div class="transformacao-label">
                 <span class="t-badge">Antes / Depois</span>
             </div>
         </div>
         <div class="transformacao-card">
-            <img src="transformacao3.jpg" alt="Transformação cliente Hugo Pereira">
+            <img src="transformacao3.jpg" alt="Resultado treino personalizado — Hugo Pereira Personal Trainer Online Braga" loading="lazy">
             <div class="transformacao-label">
                 <span class="t-badge">Antes / Depois</span>
             </div>
@@ -1544,7 +1573,7 @@
         <span class="footer-logo-name">Hugo Pereira</span>
         <span class="footer-logo-tag">Personal Trainer</span>
     </a>
-    <small>© 2026 Hugo Pereira · <a href="politica-privacidade.html" style="color:rgba(255,255,255,0.3);text-decoration:underline;">Política de Privacidade</a></small>
+    <small>© 2026 Hugo Pereira · <a href="politica-privacidade.html" style="color:rgba(255,255,255,0.3);text-decoration:underline;">Privacidade</a> · <a href="cookies.html" style="color:rgba(255,255,255,0.3);text-decoration:underline;">Cookies</a> · <a href="termos-uso.html" style="color:rgba(255,255,255,0.3);text-decoration:underline;">Termos</a></small>
     <div class="footer-social">
         <a href="https://www.instagram.com/hugopereira_pt/" class="social-link" aria-label="Instagram" target="_blank" rel="noopener">IG</a>
     </div>
@@ -1565,7 +1594,6 @@
 
     // Benefits accordion (mobile only)
     function initBenefitsAccordion() {
-        if (window.innerWidth > 768) return;
         document.querySelectorAll('.benefit-card').forEach(card => {
             if (card.querySelector('.benefit-toggle')) return; // already init
             const icon = card.querySelector('.benefit-icon');
@@ -1649,11 +1677,17 @@
 
     // Mobile menu
     function toggleMenu() {
-        document.getElementById('navLinks').classList.toggle('open');
+        const navLinks = document.getElementById('navLinks');
+        const hamburger = document.getElementById('hamburger');
+        const isOpen = navLinks.classList.toggle('open');
+        hamburger.classList.toggle('open', isOpen);
+        document.body.style.overflow = isOpen ? 'hidden' : '';
     }
     document.querySelectorAll('.nav-links a').forEach(link => {
         link.addEventListener('click', () => {
             document.getElementById('navLinks').classList.remove('open');
+            document.getElementById('hamburger').classList.remove('open');
+            document.body.style.overflow = '';
         });
     });
 
@@ -1814,7 +1848,7 @@
 <!-- ── Cookie Banner ── -->
 <div id="cookie-banner" class="hidden">
     <p class="cookie-text">
-        Utilizamos cookies analíticos (Google Analytics) e de marketing (Meta Pixel) para melhorar a tua experiência e mostrar conteúdo relevante. Podes aceitar ou recusar cookies não essenciais. Consulta a nossa <a href="politica-privacidade.html">Política de Privacidade</a>.
+        Utilizamos cookies analíticos (Google Analytics) e de marketing (Meta Pixel) para melhorar a tua experiência e mostrar conteúdo relevante. Podes aceitar ou recusar cookies não essenciais. Consulta a nossa <a href="politica-privacidade.html">Política de Privacidade</a> ou a <a href="cookies.html">Política de Cookies</a>.
     </p>
     <div class="cookie-actions">
         <button class="btn-cookie-accept" id="btn-aceitar">Aceitar cookies</button>
